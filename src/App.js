@@ -7,6 +7,7 @@ import RoutePublic from './components/RoutePublic';
 import { MainLayout } from './components/Layouts';
 
 const AsyncHome = lazy(() => import('./containers/Home'));
+const Login = lazy(() => import('./containers/Login'));
 
 function App() {
   return (
@@ -16,7 +17,14 @@ function App() {
           <RoutePublic
             isAuthenticated={false}
             path="/"
+            exact={true}
             component={AsyncHome}
+            layout={MainLayout}
+          />
+          <RoutePublic
+            isAuthenticated={false}
+            path="/login"
+            component={Login}
             layout={MainLayout}
           />
         </Switch>
